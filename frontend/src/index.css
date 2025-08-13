@@ -1,0 +1,34 @@
+/* === GLOBAL BODY FIX FOR DASHBOARD SIZING === */
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* ✅ Fix the zoom so dashboard fits in all screens */
+  zoom: 0.85; /* Shrinks all content slightly on large screens */
+
+  background-color: #181824;
+  color: #fff;
+}
+
+/* ✅ Make zoom normal on smaller screens */
+@media (max-width: 1440px) {
+  body {
+    zoom: 0.90;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    zoom: 1;
+  }
+}

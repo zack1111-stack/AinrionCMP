@@ -1,0 +1,1565 @@
+/* === PROFESSIONAL EMPLOYEE PROFILE CARD === */
+
+
+
+.profile-pro-card {
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 8px 32px rgba(30,60,120,0.10);
+  border-radius: 22px;
+  max-width: 440px;
+  margin: 40px auto 0 auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+}
+
+
+.profile-pro-avatar-ring {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 18px auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00F5FF 0%, #9D4EDD 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 18px #00F5FF44;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.profile-pro-avatar-ring:hover {
+  box-shadow: 0 0 32px #9D4EDD99;
+}
+.profile-pro-avatar {
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  background: #f8fafc;
+}
+.profile-pro-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.profile-pro-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+  color: #333;
+}
+.profile-pro-info-grid span {
+  color: #1976d2;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.profile-title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #1976d2;
+}
+.profile-btn-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+/* === Base Layout === */
+/* === Base Layout === */
+.employee-dashboard {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Sidebar === */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -265px;
+  width: 265px;
+  background-color: #181824;
+  color: white;
+  z-index: 1200;
+  transition: left 0.3s cubic-bezier(.4,0,.2,1);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  box-shadow: 2px 0 12px #0001;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.logo {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.nav-links li:hover {
+  background-color: #57606f;
+}
+
+/* === Sidebar Toggle Button === */
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.3rem;
+  z-index: 1100;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Main Area === */
+.main-area {
+  flex: 1;
+  width: 100%;
+  margin-left: 0;
+  transition: margin-left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  z-index: 1;
+  background: #232336;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop Sidebar Open Effect */
+@media (min-width: 769px) {
+  .employee-dashboard.sidebar-open .main-area {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+  }
+}
+
+/* Mobile Overrides */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80% !important;
+  }
+
+  .employee-dashboard.sidebar-open .main-area {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* === Dashboard Header === */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* === Task List === */
+
+.task-list {
+  list-style: none;
+  padding: 0 32px 32px 32px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.task-list li {
+  background: #232336;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px #0001;
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-left-width: 6px;
+  border-left-style: solid;
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* === Tags === */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: white;
+  margin-left: 10px;
+}
+
+.tag.high { background-color: #e74c3c; }
+.tag.medium { background-color: #f1c40f; }
+.tag.low { background-color: #2ecc71; }
+
+/* === Attendance Table === */
+.attendance-table {
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+  margin: 24px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.attendance-table th, .attendance-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-table .present { color: green; font-weight: bold; }
+.attendance-table .absent { color: red; font-weight: bold; }
+
+/* === Cards === */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 24px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin: 6px 0 0;
+}
+
+.card.blue { background: #1e90ff; }
+.card.green { background: #2ed573; }
+.card.yellow { background: #ffa502; }
+.card.purple { background: #a29bfe; }
+
+/* === Continue with your existing Attendance, Leave, Profile, Messages styles === */
+/* You can keep all your other styles exactly as you’ve written them below this. */
+
+.card.blue { background: #1e90ff; }
+.card.green { background: #2ed573; }
+.card.yellow { background: #ffa502; }
+.card.purple { background: #a29bfe; }
+
+/* === Task List === */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px;
+}
+
+.task-list li {
+  background: #fff;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-left: 5px solid #1e90ff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: white;
+  margin-left: 10px;
+}
+
+.tag.high { background-color: #e74c3c; }
+.tag.medium { background-color: #f1c40f; }
+.tag.low { background-color: #2ecc71; }
+
+/* === Attendance Table === */
+.attendance-table {
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+  margin: 24px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.attendance-table th, .attendance-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-table .present { color: green; font-weight: bold; }
+.attendance-table .absent { color: red; font-weight: bold; }
+
+/* === Attendance UI Redesign === */
+.professional-attendance-ui {
+  padding: 30px 20px;
+  max-width: 620px;
+  margin: auto;
+}
+
+
+/* === Improved Attendance Card === */
+
+.attendance-card {
+  background: linear-gradient(120deg, #232336 60%, #35354a 100%);
+  padding: 32px 28px 28px 28px;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(30,60,120,0.18);
+  text-align: center;
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  color: #fff;
+}
+
+.attendance-card .attendance-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffb300;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+}
+
+.attendance-card .attendance-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 18px;
+}
+
+.attendance-card .attendance-meta .label {
+  color: #b3e5fc;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.attendance-card .attendance-meta .value {
+  font-size: 1.6rem;
+  color: #ffb300;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.attendance-chart-container {
+  background: #232336;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(30,60,120,0.10);
+  padding: 18px 10px 10px 10px;
+  margin: 0 auto 18px auto;
+  max-width: 420px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attendance-chart {
+  width: 100% !important;
+  height: 180px !important;
+  display: block;
+}
+
+.attendance-status-tag {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.status-message {
+  background-color: #35354a;
+  color: #ffb300;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 10px;
+  letter-spacing: 0.2px;
+}
+
+.delay-info {
+  font-size: 0.95rem;
+  color: #d9534f;
+  margin-top: 6px;
+}
+
+/* Responsive for Attendance Card & Chart */
+@media (max-width: 600px) {
+  .attendance-card {
+    padding: 18px 6px 18px 6px;
+  }
+  .attendance-chart-container {
+    padding: 8px 2px 2px 2px;
+    min-height: 120px;
+  }
+  .attendance-chart {
+    height: 120px !important;
+  }
+}
+
+.attendance-meta .label {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.attendance-meta .value {
+  font-size: 1.6rem;
+  color: #1e3a8a;
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.status-message {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.status-message.present { color: #28a745; }
+.status-message.pending { color: #ff9800; }
+
+.delay-info {
+  display: block;
+  font-size: 0.9rem;
+  color: #dc3545;
+  margin-top: 4px;
+}
+
+/* === Leave Request === */
+.leave-request {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin: 32px auto;
+}
+
+.leave-request form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leave-request input,
+.leave-request textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.leave-request button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.leave-request button:hover {
+  background-color: #0e70d1;
+}
+
+/* === Profile Page === */
+.profile-new-layout {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background: #f5f7fa;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* etc... (You can continue adding your cleaned profile + messages + explore styles here) */
+
+
+.profile-info {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.profile-info p {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* Messages Page */
+
+/* === Improved Messages Page === */
+.messages-page {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(30,60,120,0.08);
+  padding: 36px 32px 32px 32px;
+  min-height: 320px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.messages-header {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.messages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+
+.messages-list li {
+  background: #f7f9fc;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 4px rgba(30,60,120,0.04);
+  color: #222;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.message-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e3e8f0;
+  border: 2px solid #e0e7ef;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-meta {
+  font-size: 0.92rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.messages-empty {
+  text-align: center;
+  color: #888;
+  font-size: 1.08rem;
+  margin-top: 40px;
+}
+
+.messages-input-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.messages-input-row input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 1rem;
+  background: #f7f9fc;
+}
+
+.messages-input-row button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.messages-input-row button:hover {
+  background: #125ea7;
+}
+
+/* ✅ ADDED: Leave Request Form */
+.leave-request {
+  margin-top: 32px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.leave-request h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #2f3542;
+}
+
+.leave-request form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leave-request input,
+.leave-request textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.leave-request textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.leave-request button {
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.leave-request button:hover {
+  background-color: #0e70d1;
+}
+
+/* ✅ ADDED: Notifications placeholder inside Messages */
+.notifications-placeholder {
+  margin-top: 20px;
+  background: #fefefe;
+  padding: 16px;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  color: #333;
+}
+
+.notifications-placeholder .info {
+  font-size: 13px;
+  color: #888;
+}
+
+.attendance-ui-redesign {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+.profile-role {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.info-card {
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.info-card h3 {
+  margin: 5px 0 0;
+  font-size: 1rem;
+}
+
+.checkin-status-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.check-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.checkin-btn, .checkout-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+.checkin-btn {
+  background: #004b93;
+  color: white;
+}
+
+.checkout-btn {
+  background: #ccc;
+  color: #555;
+}
+
+.last-checkin {
+  font-size: 0.85rem;
+  color: #6b7280; /* or whichever color you prefer */
+}
+
+
+.explore-section-cards {
+  margin-top: 30px;
+}
+
+.explore-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.explore-card {
+  background: #232336;
+  color: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1.5px solid #35354a;
+  box-shadow: 0 2px 8px #0002;
+  transition: 0.2s ease;
+  cursor: pointer;
+  letter-spacing: 0.1px;
+}
+.explore-card:hover {
+  background: #181824;
+  border-color: #ffb300;
+  color: #ffb300;
+
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1e3a8a;
+}
+
+.employee-name {
+  font-size: 1.1rem;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.employee-position {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.attendance-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+  text-align: center;
+}
+.attendance-card {
+  background: #232336;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px #0006;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.attendance-meta .label {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+.attendance-card .attendance-meta .label {
+  color: #b3e5fc;
+  font-size: 0.95rem;
+}
+
+.attendance-meta .value {
+  font-size: 1.6rem;
+  color: #1e3a8a;
+  margin-top: 4px;
+  font-weight: 700;
+}
+.attendance-card .attendance-meta .value {
+  font-size: 1.6rem;
+  color: #ffb300;
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.btn.primary {
+  background-color: #1e3a8a;
+  color: white;
+  cursor: pointer;
+}
+.btn.primary {
+  background: linear-gradient(90deg, #ffb300 60%, #ff9800 100%);
+  color: #181824;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn.primary:hover {
+  background-color: #1c347a;
+}
+.btn.primary:hover {
+  background: #ffb300;
+  color: #181824;
+}
+
+.btn.disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+.btn.disabled {
+  background-color: #444459;
+  color: #b3b3b3;
+  cursor: not-allowed;
+}
+
+.last-checkin {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.explore-section {
+  margin-top: 30px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+
+.explore-card {
+  background: #232336;
+  color: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1.5px solid #35354a;
+  box-shadow: 0 2px 8px #0002;
+  transition: 0.2s ease;
+  cursor: pointer;
+  letter-spacing: 0.1px;
+}
+.explore-card:hover {
+  background: #181824;
+  border-color: #ffb300;
+  color: #ffb300;
+}
+
+.attendance-status-tag {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.status-message {
+  background-color: #e0f7ec;
+  color: #15803d;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.delay-info {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.status-box {
+  margin-top: 10px;
+  background-color: #e6f7e6;
+  padding: 10px;
+  border-radius: 6px;
+  color: #2d8a3a;
+  font-weight: 500;
+  text-align: center;
+}
+
+.delay-msg {
+  color: #d9534f;
+  margin-top: 5px;
+}
+.status-message {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.status-message.present {
+  color: #28a745;
+}
+
+.status-message.pending {
+  color: #ff9800;
+}
+
+.delay-info {
+  display: block;
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.leave-request-page {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.leave-request-page h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.leave-form-page .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.leave-form-page label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.leave-form-page input,
+.leave-form-page textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.leave-form-page button {
+  margin-top: 1rem;
+}
+
+.leave-requests-page {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.leave-table th,
+.leave-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.status-badge.pending {
+  background-color: #ffc107;
+}
+
+.status-badge.approved {
+  background-color: #4caf50;
+}
+
+.status-badge.rejected {
+  background-color: #f44336;
+}
+.profile-new-layout {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background: #f5f7fa;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Left Card */
+.profile-card-left {
+  background: #ffffff;
+  padding: 30px;
+  width: 300px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.profile-new-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.profile-role {
+  font-size: 14px;
+  color: #888;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.social-icons button {
+  background: #edf2f7;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.contact-info {
+  background: #f8f9fc;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* Right Side Buttons */
+.profile-card-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.edit-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2e8bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.info-button {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+/* Container */
+.modern-profile-wrapper {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  height: 100vh;
+  background: linear-gradient(to right, #f7f9fc, #f1f4f9);
+  box-sizing: border-box;
+}
+
+/* Left Card */
+.profile-left-modern {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px 20px;
+  border-radius: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profile-photo-modern {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.modern-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.modern-role {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.modern-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modern-social-icons button {
+  background: #f1f1f1;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modern-contact-box {
+  margin-top: 10px;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.modern-contact-box p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.profile-container-modern {
+  display: flex;
+  padding: 20px;
+  gap: 30px;
+  background-color: #f5f6fa;
+  align-items: flex-start; /* ✅ prevents left panel from stretching */
+}
+
+.profile-left-panel {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  min-height: 480px; /* ✅ Match the right panel height */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-avatar-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-modern-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Right Section */
+.profile-right-modern {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.edit-btn-box {
+  text-align: right;
+}
+
+.edit-profile-btn {
+  background: linear-gradient(to right, #64e4ff, #5f9fff);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modern-section-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+.centered-profile-card {
+  max-width: 440px;          /* Increased width */
+  margin: 40px auto 0;       /* Reduced top margin to move it up */
+  background: #fff;
+  padding: 35px 30px;        /* Slightly more padding */
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.profile-photo-centered {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.profile-name-centered {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-role-centered {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.profile-info-centered {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.info-group {
+  margin-bottom: 16px;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.value {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.edit-profile-btn-centered {
+  margin-top: 20px;
+  background-color: #e5e7eb;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.edit-profile-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.edit-profile-form .btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.profile-full-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  margin: 40px;
+  width: calc(100% - 80px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.profile-edit-form input,
+.profile-edit-form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ddd;
+  color: #333;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  margin-top: 20px;
+  background: #1e90ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.avatar-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+
+.sidebar:not(.open) {
+  transform: translateX(-100%);
+}
+
+
+/* Optional smoother transition fallback */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+  }
+
+  .main-area {
+    margin-left: 0;
+  }
+}
+.employee-dashboard {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* When right panel is open */
+/* Base layout fix */
+.employee-dashboard {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Mobile override */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80% !important;
+  }
+
+  .sidebar-overlay {
+    left: 80% !important;
+  }
+
+  .employee-dashboard.sidebar-open .main-area {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.employee-dashboard.dark {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.employee-dashboard.dark .sidebar,
+.employee-dashboard.dark .main-area,
+.employee-dashboard.dark .dashboard-header,
+.employee-dashboard.dark .employee-dashboard-left,
+.employee-dashboard.dark .employee-dashboard-right {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.darkmode-toggle {
+  position: absolute;
+  right: 60px;
+  top: 10px;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  color: inherit;
+}
+

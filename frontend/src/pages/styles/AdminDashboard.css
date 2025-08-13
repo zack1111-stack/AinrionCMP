@@ -1,0 +1,479 @@
+/* styles/AdminDashboard.css */
+
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #232336;
+}
+
+.sidebar {
+  width: 265px;
+  background-color: #181824;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #ffb300;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  border-radius: 0 16px 16px 0;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.nav-links li:hover {
+  background-color: #232336;
+}
+
+.nav-links li.active {
+  background-color: #232336;
+  border-left: 4px solid #ffb300;
+  font-weight: 800;
+}
+
+.nav-links li span {
+  font-size: 14px;
+  color: #fff;
+}
+
+.logout-button {
+  margin-top: auto;
+  padding: 16px 22px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  margin-top: auto;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #232336;
+  color: #ffb300;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: #181824;
+}
+
+.dashboard-header {
+  background-color: #181824;
+  padding: 36px 28px 18px 28px;
+  border-bottom: 1px solid #232336;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  color: #fff;
+  min-height: 80px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #232336;
+  padding: 0;
+  object-fit: cover;
+}
+
+.main-content {
+  padding: 28px;
+  flex: 1;
+  overflow-y: auto;
+  background-color: #232336;
+  color: #fff;
+}
+
+.dashboard-content h1 {
+  margin-bottom: 28px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 240px;
+  padding: 24px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #181824 0%, #232336 100%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.card.blue { background-color: #42a5f5; }
+.card.green { background-color: #66bb6a; }
+.card.yellow { background-color: #fbc02d; }
+.card.purple { background-color: #ab47bc; }
+
+.card p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.card h2 {
+  margin: 0.5rem 0 0;
+}
+
+.user-management-page,
+.team-management-page,
+.task-management-page,
+.attendance-overview-page,
+.analytics-page {
+  background: linear-gradient(135deg, #181824 0%, #232336 100%);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  color: #fff;
+}
+
+/* WhatsApp style messages page */
+.messages-page-whatsapp {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #232336 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sidebar-chat-users {
+  border-right: 1px solid #232336 !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.chat-area {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.user-management-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.user-management-page th,
+.user-management-page td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-management-page button {
+  padding: 6px 12px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.user-management-page button:hover {
+  background-color: #1565c0;
+}
+
+/* ✅ Edit User Form (uses same panel style) */
+.edit-user-form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.edit-user-form h2 {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.edit-user-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edit-user-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.edit-user-form input,
+.edit-user-form select {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.edit-user-form button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.edit-user-form button:hover {
+  background-color: #1565c0;
+}
+
+/* ✅ Delete Button style */
+.user-management-page .delete-btn {
+  background-color: #e53935;
+  margin-left: 8px;
+}
+
+.user-management-page .delete-btn:hover {
+  background-color: #c62828;
+}
+
+/* ✅ Attendance Table Styling */
+.attendance-overview-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.attendance-overview-page th,
+.attendance-overview-page td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+  word-break: break-word;
+}
+
+.attendance-overview-page th {
+  background-color: #f1f1f1;
+  font-weight: 600;
+  color: #333;
+}
+
+.attendance-overview-page td {
+  color: #444;
+}
+
+.attendance-overview-page tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.attendance-overview-page tr:hover {
+  background-color: #f0f8ff;
+}
+
+/* ✅ Make right panel shift when sidebar is open */
+.main-area.shifted {
+  margin-left: 240px; /* same as .sidebar width */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar {
+  transition: width 0.3s ease-in-out;
+}
+/* === Sidebar Toggle Button === */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4fc3f7;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.sidebar-toggle:hover {
+  background: #1976d2;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.sidebar-toggle:active {
+  transform: scale(0.95);
+}
+
+.sidebar.open .sidebar-toggle {
+  transform: rotate(90deg);
+  right: 20px;
+}
+
+/* Sidebar hidden by default on small screens */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -240px;
+  height: 100vh;
+  width: 240px;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+}
+
+/* When sidebar is open */
+.sidebar.open {
+  left: 0;
+}
+
+
+/* Desktop: sidebar pushes content */
+@media (min-width: 769px) {
+  .admin-dashboard.sidebar-open .main-area {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  .sidebar {
+    left: 0;
+    width: 240px;
+    position: relative;
+    height: 100vh;
+    transition: none;
+  }
+}
+
+/* Mobile: sidebar overlays content */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 80vw !important;
+    min-width: 0 !important;
+    max-width: 80vw !important;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+  .main-area,
+  .admin-dashboard.sidebar-open .main-area {
+    margin-left: 0 !important;
+    width: 100vw !important;
+    transition: none;
+  }
+}
+/* ✅ Chat message styling */
+.chat-message {
+  padding: 12px 20px;
+  max-width: 60%;
+  font-size: 16px;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 8px #1976d222;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.chat-message.sent {
+  align-self: flex-end !important;
+  background-color: #4fc3f7 !important;
+  color: #181824 !important;
+  border-radius: 16px 16px 4px 16px !important;
+}
+
+.chat-message.received {
+  align-self: flex-start !important;
+  background-color: #232336 !important;
+  color: #fff !important;
+  border-radius: 16px 16px 16px 4px !important;
+}
+.chat-message {
+  padding: 12px 20px;
+  max-width: 60%;
+  font-size: 14px;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.13);
+  word-break: break-word;
+}
+
+.chat-message.sent {
+  align-self: flex-end;
+  background: #4fc3f7;
+  color: #181824;
+  border-radius: 16px 16px 4px 16px;
+}
+
+.chat-message.received {
+  align-self: flex-start;
+  background: #232336;
+  color: #fff;
+  border-radius: 16px 16px 16px 4px;
+}

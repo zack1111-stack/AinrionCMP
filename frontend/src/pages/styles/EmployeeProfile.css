@@ -1,0 +1,10 @@
+.employee-profile-container {
+  padding: 2rem;
+  background-color: #eef2f5;
+  min-height: 100vh;
+}
+
+.employee-profile-container h2 {
+  font-size: 24px;
+  color: #222;
+}

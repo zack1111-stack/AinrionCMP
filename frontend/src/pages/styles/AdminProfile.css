@@ -1,0 +1,16 @@
+.admin-profile-container {
+  padding: 40px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.admin-profile-container h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.admin-profile-container p {
+  font-size: 16px;
+  color: #555;
+}

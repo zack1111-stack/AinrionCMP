@@ -1,0 +1,243 @@
+.register-card {
+  animation: fadeInUp 1.1s cubic-bezier(.6,.04,.98,.335);
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.register-card button {
+  transition: background 0.3s, transform 0.18s cubic-bezier(.6,.04,.98,.335), box-shadow 0.18s;
+  box-shadow: 0 2px 8px rgba(30, 60, 120, 0.10);
+}
+.register-card button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(30,60,120,0.13);
+  background: #1976d2;
+  color: #fff;
+}
+.register-card button:active {
+  transform: scale(0.97);
+}
+/* styles/Register.css */
+
+/* CYBERPUNK BACKGROUND */
+.register-container {
+  height: 100vh;
+  background: #0A0A12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* HOLOGRAPHIC AINRION LOGO */
+
+.register-container::before {
+  content: "AINRION";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  font-size: 3.2rem;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  color: #00F5FF;
+  letter-spacing: 4px;
+  text-align: center;
+  z-index: 2;
+  text-shadow:
+    0 2px 0 #0ff,
+    0 4px 0 #9D4EDD,
+    0 8px 12px #0ff,
+    0 0 16px #9D4EDD,
+    0 0 32px #00F5FF,
+    0 0 64px #9D4EDD,
+    2px 2px 0 #222,
+    0 0 80px #00F5FF;
+  transform: perspective(400px) rotateX(18deg) scale(1.08);
+  animation: logo3DFloat 3.2s ease-in-out infinite alternate, logo3DGlow 4.5s linear infinite;
+}
+
+@keyframes logo3DFloat {
+  0% { transform: perspective(400px) rotateX(18deg) scale(1.08) translateY(0); }
+  50% { transform: perspective(400px) rotateX(10deg) scale(1.13) translateY(-12px); }
+  100% { transform: perspective(400px) rotateX(18deg) scale(1.08) translateY(0); }
+}
+
+@keyframes logo3DGlow {
+  0% { text-shadow:
+    0 2px 0 #0ff,
+    0 4px 0 #9D4EDD,
+    0 8px 12px #0ff,
+    0 0 16px #9D4EDD,
+    0 0 32px #00F5FF,
+    0 0 64px #9D4EDD,
+    2px 2px 0 #222,
+    0 0 80px #00F5FF; }
+  50% { text-shadow:
+    0 2px 0 #9D4EDD,
+    0 4px 0 #00F5FF,
+    0 8px 12px #9D4EDD,
+    0 0 16px #00F5FF,
+    0 0 32px #9D4EDD,
+    0 0 64px #00F5FF,
+    2px 2px 0 #222,
+    0 0 80px #9D4EDD; }
+  100% { text-shadow:
+    0 2px 0 #0ff,
+    0 4px 0 #9D4EDD,
+    0 8px 12px #0ff,
+    0 0 16px #9D4EDD,
+    0 0 32px #00F5FF,
+    0 0 64px #9D4EDD,
+    2px 2px 0 #222,
+    0 0 80px #00F5FF; }
+}
+
+/* HEX GRID BACKGROUND LAYER */
+.register-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* GLASSMORPHIC REGISTER CARD */
+.register-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 24px rgba(0, 245, 255, 0.15);
+  color: #EAEAEA;
+  transform: rotateX(5deg);
+  z-index: 1;
+}
+
+/* HEADING */
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #EAEAEA;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
+}
+
+/* FORM LAYOUT */
+.register-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* INPUT + SELECT */
+
+.register-card input,
+.register-card select {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #00F5FF;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #181a2a 60%, #23244a 100%);
+  color: #EAEAEA;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 0 8px #00F5FF22;
+}
+
+.register-card select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%2300F5FF" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1.2em;
+  padding-right: 2.2em;
+}
+
+.register-card select:focus {
+  border-color: #9D4EDD;
+  box-shadow: 0 0 12px #9D4EDD99;
+}
+
+.register-card option {
+  background: #181a2a;
+  color: #00F5FF;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'Orbitron', sans-serif;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+  border-color: #00F5FF;
+  outline: none;
+  box-shadow: 0 0 10px #00F5FF, 0 0 20px #9D4EDD;
+}
+
+/* BUTTON */
+.register-card button {
+  background: linear-gradient(135deg, #00F5FF, #9D4EDD);
+  color: #0A0A12;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 0 12px #00F5FF;
+}
+
+.register-card button:hover {
+  background: linear-gradient(135deg, #9D4EDD, #00F5FF);
+  box-shadow: 0 0 16px #9D4EDD;
+}
+
+/* LOGIN REDIRECT LINK */
+.login-redirect {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #999;
+}
+
+.login-redirect span {
+  color: #00F5FF;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* LOGO GLOW ANIMATION */
+@keyframes flickerGlow {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1.03);
+  }
+}

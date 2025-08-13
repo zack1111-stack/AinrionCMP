@@ -1,0 +1,10 @@
+.employee-tasks-container {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.employee-tasks-container h2 {
+  font-size: 24px;
+  color: #333;
+}

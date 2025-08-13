@@ -1,0 +1,35 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #1e293b;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  gap: 10px;
+}
+
+.sidebar-links li:hover {
+  background-color: #334155;
+}
+
+.sidebar-links li svg {
+  stroke-width: 2;
+}
